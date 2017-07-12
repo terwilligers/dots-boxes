@@ -4,7 +4,6 @@
     This is version of the game dots and boxes. A human player plays against the computer.
     At the beginning, the user is asked to input the number of boxes in a column and a row
     of the gameboard, and then the game begins. When it is over you click to exit.
-    Attempting to try out branch feature...
 
 '''
 from board import *
