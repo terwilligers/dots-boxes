@@ -6,7 +6,6 @@ It takes as an imput the rows and columns of the board which must be even number
 is the number of pixals between dots.
 An input example is Board(rows, columns ,linelength, winHeight, winWidth)
 
-
 Here is a layout of an example 6x6 input board (vline is vertical line and hline is
 horizontal line):
 [[dot, hline, dot, hline, dot, hline, dot]
