@@ -31,6 +31,7 @@ class Board(GraphWin):
         self.winWidth = winWidth
         self.board = []
         self.draw_values = []
+        #used to analyize potential moves
         self.alt_values = []
 
         #for the dots the radius is always 4
@@ -126,7 +127,6 @@ class Board(GraphWin):
                     self.draw_values[y].append(False)
                     self.alt_values[y].append(False)
 
-
     def click(self,window):
         '''This function registers a mouse click and loops through the board list. For every
             line it checks whether the clicks coordinants are within a rectangle drawn at the line.
@@ -201,7 +201,8 @@ class Board(GraphWin):
     def find_neighbors(self, window, j, i):
         '''This function gives a list of the lines that are neigbors of another line, meaning
             that if they are drawn a square is completed. The middle lines have two sets of
-            neighbors.
+            neighbors. The list first has the actual draw values and then alternative values
+            to use when the AI is checking potential outcomes
         '''
         neighbors = []
         if j == 0:
