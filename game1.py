@@ -34,7 +34,6 @@ def find_move(gameboard, win):
                     #Checks if drawing it will complete a square
                     if complete_square(gameboard, win, j, i):
                         if double_cross_check(gameboard, win, j, i) and double_cross_play(gameboard, win, j, i):
-                            print("executed double_cross")
                             return
                         else:
                             gameboard.draw(win, j, i)
@@ -70,7 +69,8 @@ def find_move(gameboard, win):
     return
 
 def double_cross_check(gameboard, win, j, i):
-    '''Checks to see whether a double_cross move is appropriate
+    '''Checks to see whether a double_cross move is appropriate. This is when there
+        are two boxes remaining in the chain, and the next chain is larger than 2.
     '''
     nextChain = 0
     gameboard.alt_draw(win, j, i)
@@ -101,6 +101,10 @@ def double_cross_check(gameboard, win, j, i):
     return False
 
 def double_cross_play(gameboard, win, j_check, i_check):
+    '''Finds the location where the double-cross move should be played, which
+        sacrifices two squares to the opponent. If it is not possible to double-cross
+        then it returns False
+    '''
     for j in range(len(gameboard.board)):
         row = gameboard.board[j]
         for i in range(len(row)):
@@ -163,7 +167,7 @@ def calc_routes(gameboard, win, cross, cross_j, cross_i):
     return False
 
 def complete_square(gameboard, win, j, i):
-    '''This function decides whether a move will complete a square by looping through the list of
+    '''This function returns whether a move will complete a square by looping through the list of
         a lines neighbors to see how many are drawn.
     '''
     count = 0
